@@ -1,0 +1,112 @@
+# Recreate the HTML file for the user and provide a fresh download link
+html_content = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Error</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8d7da;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        button {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .invitation {
+            display: none;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            width: 50%;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .celebration {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+        }
+        .gif-container img {
+            width: 100px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="errorPage">
+        <h1>404 Error - Page Not Found</h1>
+        <button onclick="loadInvitation()">Refresh</button>
+    </div>
+    
+    <div class="container" id="invitation" style="display:none;">
+        <div class="invitation">
+            <h2>Dear Ms. Jhonelie Rosales,</h2>
+            <p>My love, I miss you so much, and I can't wait to see you.</p>
+            <p>You're the most amazing person in my life, and I want to spend a wonderful evening with you.</p>
+            <p>Happy Valentine's Day! ❤️</p>
+            <p>Will you be my Valentine?</p>
+            <button onclick="acceptInvitation()">Accept Invitation</button>
+        </div>
+    </div>
+    
+    <script>
+        function loadInvitation() {
+            document.getElementById("errorPage").style.display = "none";
+            document.getElementById("invitation").style.display = "flex";
+        }
+
+        function acceptInvitation() {
+            document.body.innerHTML = `
+                <div style="text-align:center; padding: 20px;">
+                    <h1>Thank you, my love! ❤️</h1>
+                    <p>Please screenshot this as your RSVP ticket!</p>
+                    <p><strong>📅 Date:</strong> March 15, 2025</p>
+                    <p><strong>🕘 Time:</strong> 9:30 PM</p>
+                    <p><strong>📍 Location:</strong> Surprise!</p>
+                    <p><strong>👗 Dress Code:</strong> Please dress nicely, it's fine dining!</p>
+                </div>
+                <div class="celebration"> 
+                    <div class="gif-container">
+                        <img src="https://media.giphy.com/media/l0HlRnAWVkT6v1Ffy/giphy.gif" alt="Heart GIF">
+                        <img src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif" alt="Fireworks GIF">
+                        <img src="https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif" alt="Sunflowers GIF">
+                        <img src="https://media.giphy.com/media/11s7Ke7jcNxCHS/giphy.gif" alt="Cute Dog GIF">
+                        <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" alt="Heart Balloons GIF">
+                        <img src="https://media.giphy.com/media/26xBLPcXjN1uH3PKc/giphy.gif" alt="Cute Puppy Love GIF">
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
+"""
+
+# Create the HTML file again
+file_path = "/mnt/data/404_error_page.html"
+with open(file_path, "w") as file:
+    file.write(html_content)
+
+file_path
